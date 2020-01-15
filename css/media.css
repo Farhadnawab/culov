@@ -95,6 +95,25 @@
   .bird {
     display: none;
   }
+  .bird.animated {
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+  }
+
+  .bird svg {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    width: 100%;
+    height: auto;
+  }
+
+  .bird .white-figure {
+    width: 100%;
+    top: 0;
+  }
   .pen {
     display: none;
   }
@@ -673,25 +692,7 @@
   }
 }
 @media (max-width: 768px) {
-  .bird.animated {
-    display: block;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-  }
-
-  .bird svg {
-    position: absolute;
-    z-index: 1;
-    top: 0px;
-    width: 100%;
-    height: auto;
-  }
-
-  .bird .white-figure {
-    width: 100%;
-    top: 0;
-  }
+  
 
   .events {
         padding: 30px 0 0px;

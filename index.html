@@ -183,17 +183,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <script>
-        if ($(window).width() > '1500') {
-            animateHeadLine();
-        } else if ($(window).width() < '768') {
+        if ($(window).width() < '768') {
             $('header .holder nav').attr("style", "visibility: hidden; opacity: 0;");
             $('footer').attr("style", "visibility: hidden; opacity: 0;");
         }
-
+        if ($(window).width() > '1500'){
+            animateHeadLine();
+        }
+        
         animatePeacock();
         function animateHeadLine() {
 			
             if ($(window).width() < '480'){
+                
                 var textAnimator = new Vivus('mainHeadline', {
                     duration: 250,
                     file: 'img/mobile-home-pagetext-outline.svg',
@@ -207,6 +209,7 @@
                     }
                 });
             } else if($(window).width() < '1024'){
+                
                 var textAnimator = new Vivus('mainHeadline', {
                     duration: 250,
                     file: 'img/tablet-home-pagetext-outline.svg',
@@ -252,7 +255,7 @@
                         $('footer').attr("style", "visibility: visible; opacity: 1;");
                         $('section.hp-banner .mask h1').attr("style", "visibility: visible; opacity: 1;");
 
-                        if ($(window).width() < '768') {
+                        if ($(window).width() < '1500') {
                             animateHeadLine();
                         }
                     });
