@@ -1,0 +1,399 @@
+// out : ../css/style.css
+
+@import "fonts.less";
+// Generals styles
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: "CormorantUnicase";
+}
+h1, h2, h3, h4, h5, h6, ul, li, a, span, div, p, input {
+	margin: 0;
+	padding: 0;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	font-size: 13px;
+	color: #000;
+	font-weight: normal;
+	list-style: none;
+	text-decoration: none;
+}
+
+.btn{
+	display: inline-block;
+	padding: 12px 25px;
+	box-sizing: border-box;
+	background-color:#335772;
+	border-radius: 15px;
+	color: #fff;
+	font-weight: 600;
+	font-size: 24px;
+	box-shadow: 0px 3px 6px #00000029;
+}
+
+.wrapper{
+	margin-left: 100px;
+}
+
+header{
+	.holder{
+		position: fixed;
+		z-index: 5;
+		height: 170px;
+		width: calc(100% - 100px);
+		background-color: #fff;
+		border-bottom: 25px solid #D6C5B3;
+		nav{
+			max-width: 1482px;
+			margin-left: auto;
+			ul{
+				display: flex;
+				justify-content: space-between;
+				li{
+					margin-left: 40px;
+					margin-top: 75px;
+					display: table;
+					position: relative;
+					
+					.flourish{
+						display: inline-block;
+						visibility: hidden;
+						opacity: 0;
+						width: 40px;
+						height: 16px;
+						background: url(../img/deco_flourish.svg) center no-repeat;
+						transition: all .2s ease;
+					}
+					&:hover .flourish{
+						visibility: visible;
+						opacity: 1;
+					}
+					
+					&.dropdown{
+						position: relative;
+
+						&:hover .drop {
+							top: 160%;
+							opacity: 1;
+							visibility: visible;
+							transform: none;
+							z-index: 2
+						}
+						.drop {
+							position: absolute;
+							top: -9999px;
+							left: -20px;
+							right: 0;
+							opacity: 0;
+							visibility: hidden;
+							width: 212px;
+							display: block;
+							background-color: #fff;
+							border-top: 3px solid #865E31;
+							box-shadow: 7px 9px 25px -2px rgba(0, 0, 0, 0.21);
+							transition: opacity 0.3s ease;
+
+							> li {
+								margin-top: 0;
+								margin-left: 0px;
+
+								> a {
+									display: block;
+									padding: 27px 0 0 14px;
+									font: 18px Arial;
+									transition: all .3s ease;
+									&:hover{
+										color: #335772;
+									}
+								}
+
+								&:last-child {
+									> a {
+										padding-bottom: 27px;
+									}
+								}
+							}
+						}
+						.drop-mobile {
+							width: 100%;
+							margin-top: 20px;
+							display: none;
+							background-color: #fff;	
+							border-top: 3px solid #865E31;
+					
+							> li {
+								display: block;
+								margin-top: 0;
+								padding-top: 25px;
+								> a {
+									font: 18px Arial;
+									transition: all .3s ease;
+									&:hover{
+										color: #335772;
+									}
+								}
+								&:last-child {
+									padding-bottom: 25px; 
+								}
+							}
+					
+						}
+					}
+					a{
+						padding-bottom: 25px;
+						font-weight: 600;
+						font-size: 24px;
+						color: #865E31;
+					}
+					.btn{
+						white-space: nowrap;
+						display: inline;
+						color: #fff;
+						font-weight: 600;
+						font-size: 24px;
+						padding-bottom: 12px;
+					}
+					.burger {
+						margin-top: -30px;
+						width: 58px;
+						height: 58px;
+						cursor: pointer;
+						display: none;
+					
+						&.active {
+							span {
+								margin: 0;
+					
+								&:nth-child(1) {
+									transform: rotate(-45deg) translateY(5px);
+								}
+					
+								&:nth-child(2) {
+									transform: scale(0);
+								}
+					
+								&:nth-child(3) {
+									transform: rotate(45deg) translateY(-5px);
+								}
+							}
+						}
+					
+						span {
+							display: block;
+							width: 100%;
+							height: 3px;
+							background-color: #865E31;
+							margin-bottom: 15px;
+							transition: all .4s ease;
+						}
+					}
+				}
+				.burger-wrap{
+					display: none;
+				}
+				.logo{
+					margin-top: 0;
+					margin-right: 63px;
+					position: relative;
+					z-index: 5;
+					width: 298px;
+					img{
+						width: 100%;
+						height: auto;
+						position: absolute;
+					}
+				}
+			}
+		}
+	}
+}
+
+.mobile-nav{
+	position: fixed;
+	z-index: 4;
+	top: 170px;
+	left: 0;
+	right: 0;
+	background-color: #D6C5B3;
+	text-align: center;
+	padding: 65px 0 45px 0 ;
+	transition: all 0.3s linear;
+	transform: translateY(-200%);
+	&.active {
+		transform: translateY(0px);
+	}
+	ul{
+		flex-direction: column;
+		li{
+			display: block;
+			margin-top: 25px;
+			.flourish{
+				visibility: hidden;
+				opacity: 0;
+				width: 40px;
+				height: 16px;
+				background: url(../img/deco_flourish.svg) center no-repeat;
+				transition: all .2s ease;
+				&.active{
+					display: inline-block;
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+			&.dropdown{
+				.drop-mobile {
+					width: 100%;
+					margin-top: 20px;
+					display: none;
+					background-color: #fff;	
+					border-top: 3px solid #865E31;
+			
+					> li {
+						display: block;
+						margin-top: 0;
+						padding-top: 25px;
+						> a {
+							font: 18px Arial;
+							font-weight: 600;
+							transition: all .3s ease;
+							&:hover{
+								color: #335772;
+								font-weight: bold;
+							}
+						}
+						&:last-child {
+							padding-bottom: 25px; 
+						}
+					}
+			
+				}
+			}
+			a{
+				padding-bottom: 25px;
+				font-weight: 500;
+				font-size: 24px;
+				color: #865E31;
+				cursor: pointer;
+				font-weight: 600;
+			}
+			
+		}
+	}
+}
+
+section.hp-banner{
+	padding-top: 170px;
+	position: relative;
+	height: 653px;
+	background: url(../img/Chrysanthemum.png) no-repeat;
+	background-position: center;
+	background-size: cover;
+	border-left: 25px solid #D6C5B3;
+	.mask{
+		padding-top: 170px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: transparent linear-gradient(89deg, #335772D1 0%, #2E284B 100%) 0% 0% no-repeat padding-box;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		h1{
+			font: 95px 'CormorantGaramond';
+			font-weight: 500;
+			color: #fff;
+			padding: 0 25px;
+			text-align: center;
+		}
+	}
+}
+
+.bird{
+	position: fixed;
+	z-index: 5;
+	top: 26px;
+	left: -45px;
+	width: 589px;
+	height: 1045px;
+	background: url(../img/bird-graphic.svg) center no-repeat;
+	background-size: contain;
+}
+
+footer{
+	.top-footer{
+		position: relative;
+		display: flex;
+		padding: 25px 0;
+		justify-content: center;
+		align-items: center;
+		background-color: #D6C5B3;
+		p{
+			text-align: center;
+			font-family: Arial;
+			font-size: 20px;
+			color: #335772;
+			.diamond{
+				display: inline-block;
+				transform: translateY(3px);
+				width: 22px;
+				height: 22px;
+				margin: 0 6px;
+				background: url(../img/circle_diamond.svg) center no-repeat;
+			}
+		}
+		a{
+			position: absolute;
+			top: 10px;
+			right: 95px;
+		}
+	}
+	.footer-btn{
+		text-align: center;
+		margin-top: 25px;
+		display: none;
+	}
+	.main-footer{
+		max-width: 975px;
+		margin: 25px auto 32px auto;
+		font: 12px Arial;
+		padding: 0 25px;
+		p{
+			text-align: center;
+			margin-bottom: 15px;
+			color: #707070;
+		}
+		.main-footer-table{
+			margin-top: 20px;
+			margin-bottom: 15px;
+			display: flex;
+			span{
+				padding: 28px 20px 20px 20px;
+				border: 1px solid #707070;
+				text-align: center;
+				color: #707070;
+				width: 33%;
+				&:nth-child(2){
+					border-left: none;
+					border-right: none;
+				}
+			}
+		}
+		.footer-links{
+			display: flex;
+			justify-content: center;
+			li{
+				margin-right: 5px;
+				&:last-child{
+					margin-right: 0;
+				}
+				a{
+					font: 12px Arial;
+					color: #707070;
+				}
+			}
+		}
+	}
+}
