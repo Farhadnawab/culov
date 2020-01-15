@@ -461,7 +461,7 @@ section.hp-banner .mask .headline-animated {
 
 .bird svg {
   position: absolute;
-  z-index: 1;
+  z-index: 12;
   height: auto;
 }
 

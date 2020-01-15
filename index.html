@@ -96,9 +96,9 @@
             <section class="hp-banner hp-banner--main">
                 <div class="mask">
                     <div id="mainHeadline" class="headline-animated">
-						<img class="show-desktop" src="img/Homepage_text_outline_animated.svg" />
+						<!--<img class="show-desktop" src="img/Homepage_text_outline_animated.svg" />
 						<img class="show-tablet" src="img/tablet-home-pagetext-outline_animated.svg" />
-						<img class="show-mobile" src="img/mobile-home-pagetext-outline_animated.svg" />
+						<img class="show-mobile" src="img/mobile-home-pagetext-outline_animated.svg" />-->
 					</div>
                 </div>
             </section>
@@ -106,7 +106,7 @@
 
 
             <div id="main-peacock" class="bird animated visible">
-				<img class="pointer-events-none" src="img/main-peacock_animated.svg" />
+				<!--<img class="pointer-events-none" src="img/main-peacock_animated.svg" />-->
             </div>
 
             <div class="bird not-animated">
@@ -179,24 +179,21 @@
     </div>
 
     <script src="libs/jquery-3.3.1.min.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/vivus@0.4.5/dist/vivus.min.js"></script>-->
+    <script src="//cdn.jsdelivr.net/npm/vivus@latest/dist/vivus.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <script>
-        $(window).on("load",function (){
-            if ($(window).width() > '1500') {
-                animateHeadLine();
-            } else if ($(window).width() < '768') {
-                $('header .holder nav').attr("style", "visibility: hidden; opacity: 0;");
-                $('footer').attr("style", "visibility: hidden; opacity: 0;");
-            }
+        if ($(window).width() > '1500') {
+            animateHeadLine();
+        } else if ($(window).width() < '768') {
+            $('header .holder nav').attr("style", "visibility: hidden; opacity: 0;");
+            $('footer').attr("style", "visibility: hidden; opacity: 0;");
+        }
 
-            animatePeacock();
-        });
-
+        animatePeacock();
         function animateHeadLine() {
 			
-			/*var textAnimator = new Vivus('mainHeadline', {
+			var textAnimator = new Vivus('mainHeadline', {
                 duration: 250,
                 file: 'img/Homepage_text_outline.svg',
                 type: "sync",
@@ -207,14 +204,12 @@
                         $('#mainHeadline').addClass('filled');
                     });
                 }
-            });*/
-			setTimeout(function(){
-				$('#mainHeadline').addClass('filled');
-			},3000);
+            });
+			
         }
 
         function animatePeacock() {
-            /*var peacockAnimator = new Vivus('main-peacock', {
+            var peacockAnimator = new Vivus('main-peacock', {
                 duration: 250,
                 file: 'img/main-peacock.svg',
                 type: "sync",
@@ -222,22 +217,19 @@
                 start: "manual",
                 onReady: function () {
                     peacockAnimator.play(0, function () {
-                        
+                        $('.bird.not-animated').addClass('visible');
+                        $('.bird.animated').removeClass('visible');
+
+                        $('header .holder nav').attr("style", "visibility: visible; opacity: 1;");
+                        $('footer').attr("style", "visibility: visible; opacity: 1;");
+                        $('section.hp-banner .mask h1').attr("style", "visibility: visible; opacity: 1;");
+
+                        if ($(window).width() < '768') {
+                            animateHeadLine();
+                        }
                     });
                 }
-            });*/
-			setTimeout(function(){
-				$('.bird.not-animated').addClass('visible');
-				$('.bird.animated').removeClass('visible');
-
-				$('header .holder nav').attr("style", "visibility: visible; opacity: 1;");
-				$('footer').attr("style", "visibility: visible; opacity: 1;");
-				$('section.hp-banner .mask h1').attr("style", "visibility: visible; opacity: 1;");
-
-				if ($(window).width() < '768') {
-					animateHeadLine();
-				}
-			},3000);
+            });
 			
         }
 
