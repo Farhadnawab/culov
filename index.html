@@ -193,18 +193,46 @@
         animatePeacock();
         function animateHeadLine() {
 			
-			var textAnimator = new Vivus('mainHeadline', {
-                duration: 250,
-                file: 'img/Homepage_text_outline.svg',
-                type: "sync",
-                delay: 0,
-                start: "manual",
-                onReady: function () {
-                    textAnimator.play(0, function () {
-                        $('#mainHeadline').addClass('filled');
-                    });
-                }
-            });
+            if ($(window).width() < '480'){
+                var textAnimator = new Vivus('mainHeadline', {
+                    duration: 250,
+                    file: 'img/mobile-home-pagetext-outline.svg',
+                    type: "sync",
+                    delay: 0,
+                    start: "manual",
+                    onReady: function () {
+                        textAnimator.play(0, function () {
+                            $('#mainHeadline').addClass('filled');
+                        });
+                    }
+                });
+            } else if($(window).width() < '1024'){
+                var textAnimator = new Vivus('mainHeadline', {
+                    duration: 250,
+                    file: 'img/tablet-home-pagetext-outline.svg',
+                    type: "sync",
+                    delay: 0,
+                    start: "manual",
+                    onReady: function () {
+                        textAnimator.play(0, function () {
+                            $('#mainHeadline').addClass('filled');
+                        });
+                    }
+                });
+            }else {
+                var textAnimator = new Vivus('mainHeadline', {
+                    duration: 250,
+                    file: 'img/Homepage_text_outline.svg',
+                    type: "sync",
+                    delay: 0,
+                    start: "manual",
+                    onReady: function () {
+                        textAnimator.play(0, function () {
+                            $('#mainHeadline').addClass('filled');
+                        });
+                    }
+                });
+            }
 			
         }
 
