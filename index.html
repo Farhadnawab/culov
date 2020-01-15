@@ -183,6 +183,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <script>
+        $(window).on("load",function (){
+            if ($(window).width() > '1500') {
+                animateHeadLine();
+            } else if ($(window).width() < '768') {
+                $('header .holder nav').attr("style", "visibility: hidden; opacity: 0;");
+                $('footer').attr("style", "visibility: hidden; opacity: 0;");
+            }
+
+            animatePeacock();
+        });
 
         function animateHeadLine() {
 			
@@ -232,14 +242,7 @@
         }
 
 
-        if ($(window).width() > '1500') {
-            animateHeadLine();
-        } else if ($(window).width() < '768') {
-            $('header .holder nav').attr("style", "visibility: hidden; opacity: 0;");
-            $('footer').attr("style", "visibility: hidden; opacity: 0;");
-        }
-
-        animatePeacock();
+        
 
     </script>
 
