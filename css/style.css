@@ -1413,6 +1413,8 @@ section.team .team_title {
   /*padding-top: 225px;
   margin-top: -225px;*/
   padding-top: 50px;
+  -moz-background-clip: content-box;
+  -ms-background-clip: content-box;
   -webkit-background-clip: content-box;
   background-clip: content-box;
 }
@@ -1447,11 +1449,15 @@ section.team .team_title {
   cursor: default;
   width: 100%;
   height: 100%;
+  -ms-perspective: 500px;
+  -moz-perspective: 500px;
   -webkit-perspective: 500px;
           perspective: 500px;
 }
 
 .with-us .box:hover .box-content {
+  -ms-transform: rotateY( 180deg ) ;
+  -moz-transform: rotateY( 180deg ) ;
   -webkit-transform: rotateY( 180deg ) ;
           transform: rotateY( 180deg ) ;
   -webkit-transition: -webkit-transform 0.5s;
@@ -1553,6 +1559,9 @@ section.team .team_title {
   position: absolute;
   height: 100%;
   width: 100%;
+  -ms-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   padding: 20px;
 }
@@ -1562,6 +1571,9 @@ section.team .team_title {
 }
 
 .with-us .box .back {
+  -ms-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -webkit-transform: rotateY( 180deg );
   transform: rotateY( 180deg );
 }
 
